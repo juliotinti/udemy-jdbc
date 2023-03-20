@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import db.DB;
 import db.DbException;
 
-public class Ex3 {
+public class Ex4 {
 
 	public static void main(String[] args) {
 		
@@ -15,12 +15,10 @@ public class Ex3 {
 		PreparedStatement st = null; 
 		try {
 			conn = DB.getConnection();
-			st = conn.prepareStatement("UPDATE seller "  //SEMPRE USE UPDATE COM WHERE, SEMPRE
-									 + "SET BaseSalary = BaseSalary + ? "
+			st = conn.prepareStatement("DELETE FROM department "  //SEMPRE USE DELETE COM WHERE, SEMPRE
 									 + "WHERE "
-									 + "(DepartmentId = ?)");
-			st.setDouble(1, 200.0);
-			st.setInt(2, 2);
+									 + "Id = ?");
+			st.setDouble(1, 5);
 			
 			int rowsAffected = st.executeUpdate();
 			System.out.println("Done! Rows affected: " + rowsAffected);
