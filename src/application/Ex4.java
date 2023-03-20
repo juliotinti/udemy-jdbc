@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import db.DB;
-import db.DbException;
+import db.DbIntegrityException;
 
 public class Ex4 {
 
@@ -23,7 +23,7 @@ public class Ex4 {
 			int rowsAffected = st.executeUpdate();
 			System.out.println("Done! Rows affected: " + rowsAffected);
 		} catch (SQLException e) {
-			throw new DbException(e.getMessage());		
+			throw new DbIntegrityException(e.getMessage());		
 		} finally {
 			DB.closeStatement(st);
 			DB.closeConnection();
